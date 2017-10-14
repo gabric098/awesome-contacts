@@ -7,6 +7,7 @@ import * as fromContacts from '../reducers';
 import * as collection from '../actions/collection';
 import * as router from '../../core/actions/router';
 import { Contact } from '../models/contact';
+import { Country } from '../models/country';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,10 +17,12 @@ import { Contact } from '../models/contact';
 export class DetailPageComponent implements OnInit {
   contact$: Observable<Contact>;
   loading$: Observable<boolean>;
+  contactCountry$: Observable<Country>;
 
   constructor(private route: ActivatedRoute, private store: Store<fromContacts.State>) {
     this.loading$ = store.select(fromContacts.getContactLoading);
     this.contact$ = store.select(fromContacts.getSelectedContact);
+    this.contactCountry$ = store.select(fromContacts.getSelectedContactCountry);
   }
 
   ngOnInit() {

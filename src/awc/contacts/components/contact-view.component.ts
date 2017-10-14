@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../models/contact';
+import { Country } from '../models/country';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Contact } from '../models/contact';
 
 export class ContactViewComponent {
   @Input() contact: Contact;
+  @Input() country: Contact;
   @Output() editContact = new EventEmitter<number>();
 
   onEditContactClick(contactId) {

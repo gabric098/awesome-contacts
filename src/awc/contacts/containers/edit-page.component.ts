@@ -32,7 +32,6 @@ export class EditPageComponent implements OnInit {
         this.store.dispatch(new collection.LoadItem(parseInt(params['id'], 10)));
       }
     });
-    this.store.dispatch(new countries.Load());
   }
 
   onSaveContact(contact: Contact) {

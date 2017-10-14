@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { FormGroupState } from 'ngrx-forms';
@@ -17,14 +17,10 @@ import { Country } from '../models/country';
     <awc-contact-form [countries]="countries$ | async"></awc-contact-form>
   `
 })
-export class AddContactPageComponent implements OnInit {
+export class AddContactPageComponent {
   countries$: Observable<Array<Country>>;
 
   constructor(private store: Store<fromCountries.State>) {
     this.countries$ = store.select(fromCountries.getCountriesEntities);
-  }
-
-  ngOnInit() {
-    this.store.dispatch(new countries.Load());
   }
 }

@@ -6,6 +6,7 @@ import { MaterializeAction } from 'angular2-materialize';
 import * as fromContacts from '../reducers';
 import * as fromRoot from '../../reducers';
 import * as collection from '../actions/collection';
+import * as countries from '../actions/countries';
 import * as router from '../../core/actions/router';
 import { Contact } from '../models/contact';
 
@@ -29,6 +30,7 @@ export class CollectionPageComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new collection.Load());
+    this.store.dispatch(new countries.Load());
     this.menuDisplaying$.subscribe((show) => (show) ? this.showMenu() : this.hideMenu());
   }
 

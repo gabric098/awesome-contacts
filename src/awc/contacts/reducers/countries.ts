@@ -49,3 +49,7 @@ export const getLoading = (state: State) => state.loading;
 export const getCountries = (state: State) => {
   return Object.keys(state.entities).map(value => state.entities[value]);
 };
+
+export const getCountryByCode = (state: State, countryCode: string) => {
+  return state.entities[countryCode];
+};
