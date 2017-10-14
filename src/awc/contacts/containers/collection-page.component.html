@@ -1,12 +1,14 @@
 <div class="col s12 m5 l3" [class.hide-on-small-only]="(menuDisplaying$ | async) === false">
-  <button (click)="addContact()">Add</button>
   <awc-contact-list
     (selectContact)="onContactSelected($event)"
     (deleteContact)="onContactDeleted($event)"
     [selectedContact]="selectedContact$ | async"
     [contacts]="contacts$ | async">
   </awc-contact-list>
-</div>
+  <div class="fixed-action-btn">
+    <a (click)="addContact()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  </div>
+  </div>
 <div class="awc-main-stage col s12 m7 l9 hide-on-small-only" [class.hide-on-small-only]="(menuDisplaying$ | async) === true">
   <router-outlet></router-outlet>
 </div>
