@@ -148,6 +148,5 @@ export const getContacts = (state: State) => {
 };
 
 export const getSelectedContact = (state: State) => {
-  console.log('[sel entry]', state.selectedEntry);
   return (state.selectedEntry !== null) ? state.entities[state.selectedEntry] : null;
 };

@@ -52,3 +52,13 @@ export const getCountriesEntities = createSelector(
   getCountriesCollectionState,
   fromCountries.getCountries
 );
+
+export const getSelectedContactCountry = createSelector(
+  getCountriesCollectionState,
+  getSelectedContact,
+  (countries, contact) => {
+    if (countries && countries.entities && contact) {
+      return countries.entities[contact.country] ? countries.entities[contact.country] : '';
+    }
+  }
+);

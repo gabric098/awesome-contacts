@@ -56,9 +56,11 @@
 
         <label>
             <span>Country</span>
-            <select formControlName="country" >
-              <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
-            </select>
+            <div class="input-field">
+              <select materialize="material_select" [materializeSelectOptions]="countries" formControlName="country" >
+                <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+              </select>
+            </div>
         </label>
         <button type="submit" [disabled]="formContact.invalid">Save</button>
   </form>
