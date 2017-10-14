@@ -1,0 +1,8 @@
+<div class="awc-detail-container container">
+  <awc-contact-form
+    *ngIf="(loading$ | async) === false"
+    [contact]="contact$ | async"
+    [countries]="countries$ | async"
+    (saveContact)="onSaveContact($event)">
+  </awc-contact-form>
+</div>

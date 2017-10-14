@@ -1,0 +1,65 @@
+<div class="container">
+  <form novalidate (submit)="onSubmit($event)" [formGroup]="formContact">
+      {{ formContact.controls.name?.errors | json }}
+        <div class="form-group">
+            <label>
+                <span>Name</span>
+                <input type="text" formControlName="name">
+            </label>
+            <div
+              class="error"
+              *ngIf="formContact.get('name').hasError('required') && formContact.get('name').touched">
+              Name is required
+            </div>
+            <div
+              class="error"
+              *ngIf="formContact.get('name').hasError('minlength') && formContact.get('name').touched">
+              Minimum of 2 characters
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <span>Surname</span>
+                <input type="text" formControlName="surname">
+            </label>
+            <div
+              class="error"
+              *ngIf="formContact.get('surname').hasError('required') && formContact.get('surname').touched">
+              Surname is required
+            </div>
+            <div
+              class="error"
+              *ngIf="formContact.get('surname').hasError('minlength') && formContact.get('surname').touched">
+              Minimum of 2 characters
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <span>e-mail</span>
+                <input type="text" formControlName="email">
+            </label>
+            <div
+              class="error"
+              *ngIf="formContact.get('email').hasError('email') && formContact.get('email').touched">
+              This doesn't look like an email
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <span>Zip</span>
+                <input type="text" formControlName="zip">
+            </label>
+        </div>
+
+        <label>
+            <span>Country</span>
+            <select formControlName="country" >
+              <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+            </select>
+        </label>
+        <button type="submit" [disabled]="formContact.invalid">Save</button>
+  </form>
+</div>

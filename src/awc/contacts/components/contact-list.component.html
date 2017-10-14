@@ -1,0 +1,9 @@
+<ul class="collection">
+  <li class="collection-item avatar" [class.active]="(selectedContact !== null) && (contact.id === selectedContact.id)" (click)="onContactClick(contact.id)" [value]="contact.id" *ngFor="let contact of contacts">
+      <i class="material-icons circle red">account_box</i>
+      <span class="title">{{ contact.name }} {{ contact.surname }}</span>
+      <p>{{ contact.email }}
+      </p>
+      <a (click)="onDeleteContactClick($event, contact.id)" class="secondary-content"><i class="material-icons">delete</i></a>
+    </li>
+</ul>

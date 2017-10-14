@@ -1,0 +1,6 @@
+<div class="awc-detail-container container">
+    <awc-contact-view
+      *ngIf="(loading$ | async) === false"
+      [contact]="contact$ | async"
+      (editContact)="onEditContactClick($event)"></awc-contact-view>
+</div>

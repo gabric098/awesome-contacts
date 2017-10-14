@@ -1,0 +1,12 @@
+<div>
+    <div class="awc-menu">
+      <button (click)="onToggleClick()" class="hamburger">
+        <span>toggle menu</span>
+      </button>
+      <awc-lang-select [optionList]="availableLangs$ | async" [selectedOption]="selectedLang$ | async" (changeSelection)="onLangChange($event)"></awc-lang-select>
+    </div>
+    <div class="awc-container row">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+

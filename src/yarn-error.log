@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/gabriele/.nvm/versions/node/v7.2.1/bin/node /Users/gabriele/.nvm/versions/node/v7.2.1/bin/yarn add @ngrx/entity
+
+PATH: 
+  /Users/gabriele/.rvm/gems/ruby-2.1.10/bin:/Users/gabriele/.rvm/gems/ruby-2.1.10@global/bin:/Users/gabriele/.rvm/rubies/ruby-2.1.10/bin:/Users/gabriele/.nvm/versions/node/v7.2.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/opt/puppetlabs/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/gabriele/whc/dev_tools/scripts:/opt/puppetlabs/bin/:/Users/gabriele/.rvm/bin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  7.2.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@ngrx%2fentity: Not found
+      at Request.params.callback [as _callback] (/Users/gabriele/.nvm/versions/node/v7.2.1/lib/node_modules/yarn/lib/util/request-manager.js:326:18)
+      at Request.self.callback (/Users/gabriele/.nvm/versions/node/v7.2.1/lib/node_modules/yarn/node_modules/request/request.js:188:22)
+      at emitTwo (events.js:106:13)
+      at Request.emit (events.js:191:7)
+      at Request.<anonymous> (/Users/gabriele/.nvm/versions/node/v7.2.1/lib/node_modules/yarn/node_modules/request/request.js:1171:10)
+      at emitOne (events.js:96:13)
+      at Request.emit (events.js:188:7)
+      at IncomingMessage.<anonymous> (/Users/gabriele/.nvm/versions/node/v7.2.1/lib/node_modules/yarn/node_modules/request/request.js:1091:12)
+      at IncomingMessage.g (events.js:292:16)
+      at emitNone (events.js:91:20)
