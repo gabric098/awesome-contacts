@@ -9,11 +9,17 @@ import { Contact } from '../models/contact';
 
 @Component({
   selector: 'awc-contact-form',
-  templateUrl: 'contact-form.component.html'
+  templateUrl: 'contact-form.component.html',
+  styleUrls: ['contact-form.component.scss']
 })
 
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit{
   private _contact: Contact;
+  private _errorMessages = {
+    name: '',
+    surname: '',
+    email: ''
+  };
 
   @Input()
   set contact(contact: Contact) {
@@ -42,6 +48,34 @@ export class ContactFormComponent {
     zip: new FormControl(''),
     country: new FormControl('')
   });
+
+  ngOnInit() {
+    this.setErrorMsgAndSubscribe(['name', 'surname', 'email']);
+  }
+
+  private setErrorMsgAndSubscribe(fieldNames: string[]) {
+    fieldNames.map( fieldName => {
+      this.setErrorMessage(this.formContact.get(fieldName).status, fieldName);
+      this.formContact.get(fieldName).statusChanges.subscribe( data => this.setErrorMessage(data, fieldName));
+    });
+  }
+
+  private getErrorMessage(errorType) {
+    if (errorType.required) {
+      return 'This field is required';
+    } else if (errorType.minlength) {
+      return `Minimum length is ${errorType.minlength.requiredLength}`;
+    } else if (errorType.email) {
+      return 'Not a valid email';
+    }
+  }
+
+  private setErrorMessage(status, formField) {
+    this._errorMessages[formField] = '';
+    if (status === 'INVALID') {
+      this._errorMessages[formField] = this.getErrorMessage(this.formContact.get(formField).errors);
+    }
+  }
 
   onSubmit($event) {
     $event.preventDefault();
