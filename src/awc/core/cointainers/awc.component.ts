@@ -30,7 +30,7 @@ export class AwcComponent implements OnInit {
     this.store.dispatch(new languageActions.ChangeLanguage(lang));
   }
 
-  onToggleClick() {
-    this.store.dispatch(new menuActions.ToggleMenu());
+  onShowMenu() {
+    this.store.dispatch(new menuActions.ShowMenu());
   }
 }

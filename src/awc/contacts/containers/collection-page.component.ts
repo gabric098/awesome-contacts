@@ -8,6 +8,7 @@ import * as fromRoot from '../../reducers';
 import * as collection from '../actions/collection';
 import * as countries from '../actions/countries';
 import * as router from '../../core/actions/router';
+import * as menu from '../../core/actions/menu';
 import { Contact } from '../models/contact';
 
 @Component({
@@ -39,6 +40,7 @@ export class CollectionPageComponent implements OnInit {
     this.store.dispatch(new router.Go({
       path: ['/contacts/add']
     }));
+    this.store.dispatch(new menu.HideMenu());
   }
 
   onContactSelected(contactId) {

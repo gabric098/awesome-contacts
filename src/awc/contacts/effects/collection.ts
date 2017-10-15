@@ -7,6 +7,8 @@ import { Contact } from '../models/contact';
 import { ContactsService } from '../services/contacts.service';
 import { of } from 'rxjs/observable/of';
 import * as collection from '../actions/collection';
+import * as router from '../../core/actions/router';
+import * as menu from '../../core/actions/menu';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -77,13 +79,22 @@ export class CollectionEffects {
       .catch(error => of(new collection.DeleteItemFail(error)))
   );
 
-  /*@Effect()
-  navigateToContactDetail$: Observable<Action> = this.actions$
-    .ofType(collection.SELECT_ITEM)
-    .map((action: collection.SelectItem) => action.payload)
-    .mergeMap((contactId: number) => {
-      return new navigation.Go({
-        path: ['/contacts', contactId]
-      });
-    });*/
+  @Effect()
+  onSaveSuccess$: Observable<Action> = this.actions$
+    .ofType(collection.CREATE_ITEM_SUCCESS || collection.UPDATE_ITEM_SUCCESS)
+    .map((action: collection.CreateItemSuccess | collection.UpdateItemSuccess) => action.payload)
+    .map((contact: Contact) => new router.Go({
+      path: ['/contacts/view', contact.id]
+    }));
+
+  @Effect()
+  onLoadItemSuccess$: Observable<Action> = this.actions$
+    .ofType(collection.LOAD_ITEM_SUCCESS)
+    .map((action: collection.LoadItemSuccess) => new menu.HideMenu());
+
+  @Effect()
+  onCreateItem$: Observable<Action> = this.actions$
+    .ofType(collection.CREATE_ITEM)
+    .map((action: collection.LoadItemSuccess) => new menu.HideMenu());
+
 }
