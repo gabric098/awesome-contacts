@@ -1,10 +1,15 @@
 <div>
-    <div class="awc-menu">
-      <button (click)="onToggleClick()" class="hamburger">
-        <span>toggle menu</span>
-      </button>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo"><i class="material-icons">contacts</i><span class="hide-on-small-only">Awesome Contacts</span></a>
+          <ul class="right hide-on-med-and-up">
+              <li *ngIf="(menuDisplaying$ | async) === false"><a (click)="onShowMenu()"><i class="material-icons">clear</i></a></li>
+          </ul>
+      </div>
+    </nav>
+    <!--div class="awc-menu">
       <awc-lang-select [optionList]="availableLangs$ | async" [selectedOption]="selectedLang$ | async" (changeSelection)="onLangChange($event)"></awc-lang-select>
-    </div>
+    </div-->
     <div class="awc-container row">
       <router-outlet></router-outlet>
     </div>

@@ -5,7 +5,7 @@ export interface State {
 }
 
 const initialState: State = {
-  displaying: false
+  displaying: true
 };
 
 export function reducer(state = initialState, action: menu.Actions): State {
@@ -26,7 +26,7 @@ export function reducer(state = initialState, action: menu.Actions): State {
       };
     }
     default: {
-      return initialState;
+      return state;
     }
   }
 }
