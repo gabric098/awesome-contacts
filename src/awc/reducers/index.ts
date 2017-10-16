@@ -13,17 +13,20 @@ import { storeFreeze } from 'ngrx-store-freeze';
 
 import * as fromLanguage from '../core/reducers/language';
 import * as fromMenu from '../core/reducers/menu';
+import * as fromAlert from '../core/reducers/alert';
 
 export interface State {
   language: fromLanguage.State;
   menu: fromMenu.State;
   routerReducer: fromRouter.RouterReducerState<RouterStateUrl>;
+  alert: fromAlert.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   language: fromLanguage.reducer,
   menu: fromMenu.reducer,
   routerReducer: fromRouter.routerReducer,
+  alert: fromAlert.reducer
 };
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
@@ -48,3 +51,7 @@ export const getSelectedLang = createSelector(getLanguageState, fromLanguage.get
 export const getMenuState = createFeatureSelector<fromMenu.State>('menu');
 
 export const getMenuDisplaying = createSelector(getMenuState, fromMenu.getMenuDisplaying);
+
+export const getAlertState = createFeatureSelector<fromAlert.State>('alert');
+
+export const getAlert = createSelector(getAlertState, fromAlert.getAlert);
