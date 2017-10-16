@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-awesome": "ng serve --live-reload false --proxy-config proxy.conf.json & json-server --watch \"src/assets/data.json\""
+    "start-awesome": "ng serve --proxy-config proxy.conf.json & npm run db",
+    "db": "node ./node_modules/json-server/lib/cli/bin.js --watch \"src/assets/data.json\""
   },
   "private": true,
   "dependencies": {
@@ -47,6 +48,7 @@
     "cz-conventional-changelog": "^2.0.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
+    "json-server": "^0.12.0",
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
