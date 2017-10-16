@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-awesome": "ng serve --proxy-config proxy.conf.json & npm run db",
+    "start-awesome": "ng serve --live-reload false --proxy-config proxy.conf.json & npm run db",
     "db": "node ./node_modules/json-server/lib/cli/bin.js --watch \"src/assets/data.json\""
   },
   "private": true,

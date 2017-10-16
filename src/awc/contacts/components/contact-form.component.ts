@@ -26,6 +26,7 @@ export class ContactFormComponent implements OnInit{
     this._contact = contact;
     if (contact !== null) {
       this.formContact.setValue({
+        id: this._contact.id,
         name: this._contact.name,
         surname: this._contact.surname,
         email: this._contact.email,
@@ -42,6 +43,7 @@ export class ContactFormComponent implements OnInit{
   @Input() countries: Array<Country> = [];
   @Output() saveContact = new EventEmitter<Contact>();
   formContact: FormGroup = new FormGroup({
+    id: new FormControl(''),
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     surname: new FormControl('', [Validators.required, Validators.minLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email]),
