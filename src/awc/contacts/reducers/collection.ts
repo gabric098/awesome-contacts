@@ -14,6 +14,19 @@ const initialState: State = {
   selectedEntry: null
 };
 
+const sortContacts = (contacts: Contact[], propertyName) => {
+  return contacts
+    .sort( (a: Contact, b: Contact) => {
+      if (a[propertyName].toUpperCase() < b[propertyName].toUpperCase()) {
+        return -1;
+      }
+      if (a[propertyName].toUpperCase() > b[propertyName].toUpperCase()) {
+        return 1;
+      }
+      return 0;
+    });
+};
+
 export function reducer(state = initialState, action: collection.Actions): State {
   switch (action.type) {
     case collection.LOAD: {
@@ -144,7 +157,7 @@ export const getLoaded = (state: State) => state.loaded;
 export const getLoading = (state: State) => state.loading;
 
 export const getContacts = (state: State) => {
-  return Object.keys(state.entities).map(value => state.entities[value]);
+  return sortContacts(<Contact[]>Object.values(state.entities), 'name');
 };
 
 export const getSelectedContact = (state: State) => {
