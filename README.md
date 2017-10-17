@@ -32,7 +32,6 @@ This application tries to follow the standard React approach separating *Compone
 Awesome Contacts is very much a work in progress and I'm aware there's a lot of work to do in terms of functionalities and refactoring. These are the main areas I'd like to improve as soon as possible:
 
 - Cover edge cases: No contact available, 404s server errors
-- Better user feedbacks: Confirmation messages, error messages
 - Tests: add unit and e2e tests to get to a decent code coverage
 - Build pipeline: build a CI pipeline relying on the abovementioned tests.
 - Style guide: review the code and make sure it follows the official [Angular styleguide](https://angular.io/guide/styleguide) as much as possible
